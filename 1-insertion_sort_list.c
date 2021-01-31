@@ -11,40 +11,39 @@ void insertion_sort_list(listint_t **list)
 	listint_t *temp_n, *temp_sort, *swapper;
 	int len = dlistint_len(*list);
 
-	if (len < 3)
+	if (len >= 2)
 	{
-		return;
-	}
-	temp_n = *list;
-	if (len == 2)
-	{
-		temp_n = temp_n->next;
-		if (temp_n->n < (temp_n->prev)->n)
+		temp_n = *list;
+		if (len == 2)
 		{
-			swap(temp_n, temp_n->prev, list);
-			print_list(*list);
-		}
-		return;
-	}
-	while (temp_n != NULL)
-	{
-		temp_sort = temp_n;
-		if (temp_sort->prev != NULL)
-		{
-			while (temp_sort->n < (temp_sort->prev)->n && temp_sort->prev != NULL)
+			temp_n = temp_n->next;
+			if (temp_n->n < (temp_n->prev)->n)
 			{
-				swapper = temp_sort->prev;
-				if (swapper->prev == NULL)
-				{
-					swap(temp_sort, swapper, list);
-					print_list(*list);
-					break;
-				}
-				swap(temp_sort, swapper, list);
+				swap(temp_n, temp_n->prev, list);
 				print_list(*list);
 			}
+			return;
 		}
-		temp_n = temp_n->next;
+		while (temp_n != NULL)
+		{
+			temp_sort = temp_n;
+			if (temp_sort->prev != NULL)
+			{
+				while (temp_sort->n < (temp_sort->prev)->n && temp_sort->prev != NULL)
+				{
+					swapper = temp_sort->prev;
+					if (swapper->prev == NULL)
+					{
+						swap(temp_sort, swapper, list);
+						print_list(*list);
+						break;
+					}
+					swap(temp_sort, swapper, list);
+					print_list(*list);
+				}
+			}
+			temp_n = temp_n->next;
+		}
 	}
 }
 
