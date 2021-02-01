@@ -11,8 +11,6 @@ void insertion_sort_list(listint_t **list)
 	listint_t *temp_n, *temp_sort, *swapper;
 	int len = dlistint_len(*list);
 
-	if (!*list || !list)
-		return;
 	if (len > 2)
 	{
 		temp_n = *list;
@@ -40,7 +38,7 @@ void insertion_sort_list(listint_t **list)
 	else if (len == 2)
 	{
 		temp_n = *list;
-		if (temp_n->n > (temp_n->next)->n)
+		if (temp_n->n >= (temp_n->next)->n)
 		{
 				swap(temp_n->next, temp_n, list);
 				print_list(*list);
@@ -68,15 +66,6 @@ listint_t **swap(listint_t *temp_sort, listint_t *swapper, listint_t **list)
 		temp_sort->prev = NULL;
 		swapper->prev = swapper->next;
 		swapper->next = NULL;
-		*list = temp_sort;
-	}
-	else if (swapper->prev == NULL)
-	{
-		temp_sort->prev = NULL;
-		temp_sort->next = swapper;
-		swapper->prev = temp_sort;
-		swapper->next = aux_next;
-		aux_next->prev = swapper;
 		*list = temp_sort;
 	}
 	else if (temp_sort->next == NULL)
