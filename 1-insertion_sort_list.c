@@ -60,15 +60,7 @@ listint_t **swap(listint_t *temp_sort, listint_t *swapper, listint_t **list)
 	listint_t *aux_prev, *aux_next = temp_sort->next;
 
 	swapper = temp_sort->prev;
-	if (dlistint_len(*list) == 2)
-	{
-		temp_sort->next = temp_sort->prev;
-		temp_sort->prev = NULL;
-		swapper->prev = swapper->next;
-		swapper->next = NULL;
-		*list = temp_sort;
-	}
-	else if (swapper->prev == NULL)
+	if (swapper->prev == NULL)
 	{
 		temp_sort->prev = NULL;
 		temp_sort->next = swapper;
@@ -76,6 +68,15 @@ listint_t **swap(listint_t *temp_sort, listint_t *swapper, listint_t **list)
 		swapper->next = aux_next;
 		aux_next->prev = swapper;
 		*list = temp_sort;
+	}
+	else if (temp_sort->next == NULL)
+	{
+		aux_prev = swapper->prev;
+		aux_prev->next = temp_sort;
+		temp_sort->prev = aux_prev;
+		temp_sort->next = swapper;
+		swapper->prev = temp_sort;
+		swapper->next = NULL;
 	}
 	else
 	{
