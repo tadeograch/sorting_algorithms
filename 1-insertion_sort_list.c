@@ -68,14 +68,14 @@ listint_t **swap(listint_t *temp_sort, listint_t *swapper, listint_t **list)
 		swapper->next = NULL;
 		*list = temp_sort;
 	}
-	else if (temp_sort->next == NULL)
+	else if (swapper->prev == NULL)
 	{
-		aux_prev = swapper->prev;
-		aux_prev->next = temp_sort;
-		temp_sort->prev = aux_prev;
+		temp_sort->prev = NULL;
 		temp_sort->next = swapper;
 		swapper->prev = temp_sort;
-		swapper->next = NULL;
+		swapper->next = aux_next;
+		aux_next->prev = swapper;
+		*list = temp_sort;
 	}
 	else
 	{
