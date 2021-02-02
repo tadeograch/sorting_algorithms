@@ -39,7 +39,7 @@ void TopDownSplitMerge(int B[], int iBegin, int iEnd, int A[])
 
 	printf("Merging...\n");
 	TopDownMerge(B, iBegin, iMiddle, iEnd, A);
-	printf("[done]: ");
+	printf("[Done]: ");
 	for (index = iBegin; index < iEnd; index++)
 	{
 		printf("%d", A[index]);
