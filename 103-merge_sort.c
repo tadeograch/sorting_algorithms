@@ -81,7 +81,7 @@ void TopDownMerge(int A[], int iBegin, int iMiddle, int iEnd, int B[])
 	printf("[left]: ");
 	for (index = iBegin; index < iMiddle; index++)
 	{
-		printf("%d ", A[index]);
+		printf("%d", A[index]);
 		if (index != iMiddle - 1)
 			printf(", ");
 	}
