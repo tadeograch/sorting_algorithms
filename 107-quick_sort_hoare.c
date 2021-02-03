@@ -45,7 +45,7 @@ void rec_quick_sort_hoare(int *array, int lo, int hi, size_t size)
 int partition_hoare(int *array, int lo, int hi, size_t size)
 {
     int pivot = array[hi];
-    int i = lo;
+    int i = lo - 1;
     int j = hi;
     int temp = 0;
 
