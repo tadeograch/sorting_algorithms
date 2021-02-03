@@ -28,6 +28,8 @@ void cocktail_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
 
+void quick_sort_hoare(int *array, size_t size);
+
 listint_t **swap(listint_t *temp_sort, listint_t *swapper, listint_t **list);
 size_t dlistint_len(const listint_t *list);
 void rec_quick_sort(int *array, int lo, int hi, size_t size);
@@ -35,6 +37,9 @@ int partition(int *array, int lo, int hi, size_t size);
 void TopDownSplitMerge(int B[], int iBegin, int iEnd, int A[]);
 void TopDownMerge(int A[], int iBegin, int iMiddle, int iEnd, int B[]);
 void CopyArray(int A[], int iBegin, int iEnd, int B[]);
+
+void rec_quick_sort_hoare(int *array, int lo, int hi, size_t size);
+int partition_hoare(int *array, int lo, int hi, size_t size);
 
 
 #endif
