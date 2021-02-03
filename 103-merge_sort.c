@@ -17,7 +17,7 @@ void merge_sort(int *array, size_t size)
 	brray = malloc(sizeof(int) * size);
 	CopyArray(array, 0, n, brray);
 	TopDownSplitMerge(brray, 0, n, array);
-    free(brray);
+	free(brray);
 }
 
 /**
