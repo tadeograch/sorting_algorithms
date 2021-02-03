@@ -29,8 +29,8 @@ void rec_quick_sort_hoare(int *array, int lo, int hi, size_t size)
 	if (lo < hi)
 	{
 		p = partition_hoare(array, lo, hi, size);
-		rec_quick_sort_hoare(array, lo, p, size);
-		rec_quick_sort_hoare(array, p + 1, hi, size);
+		rec_quick_sort_hoare(array, lo, p - 1, size);
+		rec_quick_sort_hoare(array, p, hi, size);
 	}
 }
 
@@ -44,7 +44,7 @@ void rec_quick_sort_hoare(int *array, int lo, int hi, size_t size)
  */
 int partition_hoare(int *array, int lo, int hi, size_t size)
 {
-    int pivot = array[lo];
+    int pivot = array[hi];
     int i = lo;
     int j = hi;
     int temp = 0;
