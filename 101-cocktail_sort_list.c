@@ -1,48 +1,47 @@
-#include "sort.h"
+B#include "sort.h"
 
 /**
- * insertion_sort_list - Implements insertion sort algorithm
+ * cocktail_sort_list - Implements cocktail sort algorithm
  *
  * @list: The doubly linked list to be sorted
 */
 
 void cocktail_sort_list(listint_t **list)
 {
-    listint_t *recorro, *temp;
-    
-    if (!list || *list == NULL)
+	listint_t *recorro, *temp;
+
+	if (!list || *list == NULL)
 		return;
 
-    if ((*list)->next == NULL)
+	if ((*list)->next == NULL)
 		return;
 
-    temp = (*list)->next;
-    while (temp != NULL)
-    {
-        recorro = *list;
-        while (recorro->next != NULL)
-        {
-            if (recorro->n > recorro->next->n)
-            {
-                swap(recorro->next, recorro, list);
-                print_list(*list);
-            }
-            else
-                recorro = recorro->next;
-        }
-        while (recorro->prev != NULL)
-        {
-            if (recorro->n < recorro->prev->n)
-            {
-                swap(recorro, recorro->prev, list);
-                print_list(*list);
-            }
-            else
-                recorro = recorro->prev;
-        }
-        temp = temp->next;
-    }
-
+	temp = (*list)->next;
+	while (temp != NULL)
+	{
+		recorro = *list;
+		while (recorro->next != NULL)
+		{
+			if (recorro->n > recorro->next->n)
+			{
+				swap(recorro->next, recorro, list);
+				print_list(*list);
+			}
+			else
+				recorro = recorro->next;
+		}
+		while (recorro->prev != NULL)
+		{
+			if (recorro->n < recorro->prev->n)
+			{
+				swap(recorro, recorro->prev, list);
+				print_list(*list);
+			}
+			else
+				recorro = recorro->prev;
+		}
+		temp = temp->next;
+	}
 }
 
 /**

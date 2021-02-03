@@ -1,9 +1,10 @@
 #include "sort.h"
 
 /**
- * counting_sort - Implements insertion sort algorithm
+ * counting_sort - Implements counting sort algorithm
  *
- * @list: The doubly linked list to be sorted
+ * @array: The array to be sorted
+ * @size: Size of the array
 */
 void counting_sort(int *array, size_t size)
 {
@@ -22,7 +23,7 @@ void counting_sort(int *array, size_t size)
 	new_arr = (int *) malloc(sizeof(int) * max);
 	for (i = 0; i <= max; i++)
 		new_arr[i] = 0;
-	
+
 	for (i = 0; i < (int)size; i++)
 		new_arr[array[i]] += 1;
 
@@ -42,7 +43,7 @@ void counting_sort(int *array, size_t size)
 	}
 	for (i = 0; i < (int)size; i++)
 		array[i] = new_new[i];
-	
+
 	free(new_new);
 	free(new_arr);
 }
